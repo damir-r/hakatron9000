@@ -13,4 +13,4 @@ export const Address: React.FC<AddressProps> = ({
   </address>
 );
 
-export default Address; //
+export default Address;
