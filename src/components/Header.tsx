@@ -2,11 +2,13 @@ import React from 'react';
 import '../App.css';
 import { HeaderProps } from '../types.tsx';
 import { NavItem } from './NavItem.tsx';
+import { GradeSection } from './GradeSection.tsx';
 
 export const Header: React.FC<HeaderProps> = ({ 
   logoUrl, 
   schoolName, 
-  navItems 
+  navItems,
+  showSelection = false
 }) => (
   <header className="header">
     <div className="logo">
@@ -18,6 +20,7 @@ export const Header: React.FC<HeaderProps> = ({
         {navItems.map((item, index) => (
           <li key={index}>
             <NavItem {...item} />
+            {showSelection && item.text === "расписания" ? (<GradeSection />) : (<></>)}
           </li>
         ))}
       </ul>

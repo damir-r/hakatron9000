@@ -1,0 +1,25 @@
+.gradeContainer {
+  background-color: rgba(234, 234, 234, 1);
+  display: flex;
+  width: 130%;
+  flex-direction: column;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.gradeHeader {
+  background-color: rgba(204, 204, 204, 1);
+  border-color: rgba(0, 0, 0, 1);
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  padding: 26px 55px;
+  color: rgba(101, 98, 162, 1);
+  font: 900 40px Montserrat Alternates, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+@media (max-width: 991px) {
+  .gradeHeader {
+    padding: 0 20px;
+  }
+}

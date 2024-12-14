@@ -1,0 +1,80 @@
+.container {
+    border-radius: 0px;
+    max-width: 450px;
+    position:absolute;
+    z-index: 99;
+}
+
+.content {
+    gap: 20px;
+    display: flex;
+}
+
+@media (max-width: 991px) {
+    .content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+    }
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+    margin-left: 0px;
+}
+
+.columnRight {
+    composes: column;
+    margin-left: 20px;
+    position: relative;
+    left: 2vh;
+}
+
+@media (max-width: 991px) {
+    .column {
+        width: 100%;
+    }
+
+    .columnRight {
+        width: 100%;
+    }
+}
+
+.subgradeContainer {
+    background-color: rgba(234, 234, 234, 1);
+    display: flex;
+    margin-top: 103px;
+    flex-direction: column;
+    color: rgba(101, 98, 162, 1);
+    width: 100%;
+    font: 900 30px Montserrat Alternates, -apple-system, Roboto, Helvetica, sans-serif;
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.subgradeHeader {
+    background-color: rgba(234, 234, 234, 1);
+    z-index: 10;
+    padding: 6px 6px;
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.subgradeHeader:hover {
+    background-color: rgba(204, 204, 204, 1);
+}
+
+@media (max-width: 991px) {
+    .subgradeContainer {
+        margin-top: 40px;
+    }
+
+    .subgradeHeader {
+        padding-left: 20px;
+    }
+
+    .subgradeContent {
+        margin-right: 10px;
+    }
+}

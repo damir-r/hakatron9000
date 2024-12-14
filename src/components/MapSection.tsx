@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import { MapSectionProps } from '../types';
 
-export const MapSection: React.FC<MapSectionProps> = ({ mapUrl, gisLink }) => (
+export const MapSection: React.FC<MapSectionProps> = ({ mapUrl }) => (
   <section className="mapSection" aria-label="School Location">
     <img src={mapUrl} alt="School address in text with the school on the right" className="mapImage" />
     <div className="locationInfo">

@@ -9,26 +9,20 @@ import { SocialLink } from './components/SocialLink.tsx';
 import { NavItemProps } from './types.tsx';
 
 export const App: React.FC = () => {
-  const [activeNavItem, setActiveNavItem] = useState<string>('campus');
+  const [activeNavItem, setActiveNavItem] = useState<string>('');
 
   const navItems: NavItemProps[] = [
-    { 
+    {
       text: 'расписания',
-      onClick: () => setActiveNavItem('schedule'),
+      onClick: () => setActiveNavItem(activeNavItem === 'schedule' ? '' : 'schedule'),
       isActive: activeNavItem === 'schedule',
       ariaLabel: 'View schedule'
     },
     {
       text: 'схема школы',
-      onClick: () => setActiveNavItem('map'),
+      onClick: () => setActiveNavItem(activeNavItem === 'map' ? '' : 'map'),
       isActive: activeNavItem === 'map',
       ariaLabel: 'View school map'
-    },
-    {
-      text: 'кампус',
-      onClick: () => setActiveNavItem('campus'),
-      isActive: activeNavItem === 'campus',
-      ariaLabel: 'View campus'
     }
   ];
 
@@ -54,43 +48,51 @@ export const App: React.FC = () => {
   return (
     <div className="container">
       <Header
-        logoUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/d6f559e76ae6accc477ab358d1af75565fd367926cbe69950b6bb3251fabe551?placeholderIfAbsent=true&apiKey=eda510c4d04b467a8e2abece48fb9a97"
+        logoUrl="/icons/logo.svg"
         schoolName="РАСПИСАНИЕ АРКТИЧЕСКОЙ ШКОЛЫ"
         navItems={navItems}
+        showSelection={activeNavItem === "schedule"}
       />
 
       <main className="mainContent">
-        <MapSection
-          mapUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/78f5c688c6aa53b6c2823897e03702c83684aff7348447e5fbdb58ef21ffefbd?placeholderIfAbsent=true&apiKey=eda510c4d04b467a8e2abece48fb9a97"
-          gisLink="https://2gis.ru/yakutsk"
+        <div className={`content${activeNavItem !== "" ? " hidden" : ""}`}><MapSection
+          mapUrl="/img/school.png"
         />
 
-        <section className="gallerySection">
-          <h2 className="sectionTitle">Фотогалерея</h2>
-          <div className="gallery">
-            {[
-              'rgba(217, 217, 217, 1)',
-              'rgba(157, 157, 157, 1)',
-              'rgba(89, 89, 89, 1)'
-            ].map((color, index) => (
-              <ImageGalleryItem
-                key={index}
-                backgroundColor={color}
-                alt={`Gallery image ${index + 1}`}
-              />
-            ))}
-          </div>
-        </section>
-
-        <section className="facilitiesSection">
-          <div className="facilitiesGrid">
-            {facilityCards.map((card, index) => (
-              <FacilityCard key={index} {...card} />
-            ))}
-          </div>
-        </section>
+          <section className="gallerySection">
+            <h2 className="sectionTitle">Фотогалерея</h2>
+            <div className="gallery">
+              {[
+                'rgba(217, 217, 217, 1)',
+                'rgba(157, 157, 157, 1)',
+                'rgba(89, 89, 89, 1)'
+              ].map((color, index) => (
+                <ImageGalleryItem
+                  key={index}
+                  backgroundColor={color}
+                  alt={`Gallery image ${index + 1}`}
+                />
+              ))}
+            </div>
+          </section></div>
+        <div className={`content${activeNavItem !== "schedule" ? " hidden" : ""}`}><img
+          src="/icons/schedule.svg"
+          alt="School Campus Overview"
+          className="campusImage"
+        /></div>
+        <div className={`content${activeNavItem !== "map" ? " hidden" : ""}`}><img
+          src="/img/plan.svg"
+          alt="School Plan Overview"
+          className="planImage"
+        /></div>
       </main>
-
+      <div className="facilitiesSection">
+        <div className="facilitiesGrid">
+          {facilityCards.map((card, index) => (
+            <FacilityCard key={index} {...card} />
+          ))}
+        </div>
+      </div>
       <footer className="footer">
         <h2 className="footerTitle">Наш адрес</h2>
         <Address
@@ -101,11 +103,11 @@ export const App: React.FC = () => {
         />
         <div className="socialLinks">
           <SocialLink
-          icon="/icons/phone.svg"
-          text="+7(4112)319522"
-          alt="Phone icon"
-          href="tel:+74112319522"
-          ariaLabel="Send SMS"
+            icon="/icons/phone.svg"
+            text="+7(4112)319522"
+            alt="Phone icon"
+            href="tel:+74112319522"
+            ariaLabel="Send SMS"
           />
           <SocialLink
             icon="/icons/email.svg"

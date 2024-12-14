@@ -44,3 +44,12 @@ export interface NavItemProps {
     schoolName: string;
     navItems: NavItemProps[];
   }
+
+  export interface GradeItemProps {
+    grade: string;
+    hasIcon?: boolean;
+  }
+  
+  export interface GradeListProps {
+    grades: GradeItemProps[];
+  }

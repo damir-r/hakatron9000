@@ -6,12 +6,12 @@
 }
 
 .header {
-  background-color: #938fec;
-  border-bottom: 10px solid #6562a2;
+  background-color: #000;
   padding: 22px 67px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-height: 30%;
 }
 
 .logo {
@@ -47,8 +47,8 @@
 }
 
 .navItem {
-  background-color: #fff;
-  color: #26218c;
+  background-color: #000;
+  color: #fff;
   padding: 36px 53px;
   border-radius: 30px;
   border: none;
@@ -59,13 +59,13 @@
 
 .navItem:hover,
 .navItem:focus {
-  background-color: #f0f0f0;
+  background-color: #424242;
   outline: none;
 }
 
 .navItem.active {
   background-color: #26218c;
-  color: #fff;
+  color: #aaa8ec;
 }
 
 .mainContent {
@@ -124,24 +124,47 @@
   margin-top: 50px;
 }
 
-.facilityCard {
-  background-color: #938fec;
-  padding: 30px;
-  border-radius: 20px;
-  color: #fff;
+.feature {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 25%;
+  margin-left: 20px;
 }
 
-.facilityTitle {
-  font: 900 36px 'Montserrat Alternates', sans-serif;
-  margin-bottom: 20px;
+.feature:first-child {
+  margin-left: 0;
 }
 
-.facilityDescription {
-  font: 900 20px 'Montserrat Alternates', sans-serif;
+.featurecontent {
+  color: #000;
+  font: 900 20px Montserrat Alternates, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.featuretitle {
+  font-size: 36px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.featuredescription {
+  font-size: 20px;
+}
+
+@media (max-width: 991px) {
+  .feature {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 40px;
+  }
+  
+  .feature:first-child {
+    margin-top: 0;
+  }
 }
 
 .footer {
-  background-color: #6562a2;
+  background-color: #000;
   padding: 36px 80px;
   color: #fff;
 }
@@ -177,6 +200,20 @@
   height: auto;
 }
 
+.facilitiesSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.facilitiesGrid {
+  box-sizing: border-box;
+  background-color: rgb(101, 98, 162);
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  padding: 42px 80px 18px 42px;
+}
+
 @media (max-width: 991px) {
   .header {
     padding: 20px;
@@ -198,10 +235,34 @@
   }
 
   .facilitiesGrid {
-    grid-template-columns: 1fr;
+    max-width: 100%;
+    padding-right: 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
   }
 
   .footer {
     padding: 20px;
   }
+}
+
+.campusImage {
+  aspect-ratio: 0.55;
+  object-fit: contain;
+  width: 971px;
+  align-self: center;
+  margin-top: 80px;
+}
+
+.content {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.content.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
 }
